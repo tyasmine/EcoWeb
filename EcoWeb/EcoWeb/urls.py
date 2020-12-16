@@ -20,6 +20,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("ecow.urls")),
 ]
-
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-urlpatterns += staticfiles_urlpatterns()
