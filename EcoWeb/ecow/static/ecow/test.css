@@ -1,0 +1,115 @@
+/* colors */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.green {
+  color: #13c740;
+}
+
+.nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  width: 50%;
+  height: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+.nav-links li a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.auth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  width: 50%;
+  height: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+.auth li a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+nav {
+  -webkit-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+nav .tree img {
+  display: inline;
+  padding-right: 0px;
+  width: 20%;
+}
+
+@media screen and (max-width: 1300px) {
+  .line {
+    width: 30px;
+    height: 3px;
+    background: gray;
+    margin: 5px;
+  }
+  nav {
+    position: relative;
+  }
+  .hamburger {
+    position: absolute;
+    cursor: pointer;
+    padding-left: 10px;
+    right: 5%;
+    padding-bottom: 0;
+    top: 50%;
+    -webkit-transform: translate(-5%, -50%);
+            transform: translate(-5%, -50%);
+    z-index: 2;
+  }
+  .nav-links {
+    position: fixed;
+    background: #13c740;
+    height: 100vh;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    clip-path: circle(50px at 90% -10%);
+    -webkit-clip-path: circle(50px at 90% -10%);
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+    pointer-events: none;
+  }
+  .nav-links li a {
+    color: white;
+  }
+  .nav-links.open {
+    clip-path: circle(2000px at 90% -10%);
+    -webkit-clip-path: circle(2000px at 90% -10%);
+    pointer-events: all;
+  }
+  .auth {
+    display: none;
+  }
+}
+/*# sourceMappingURL=test.css.map */

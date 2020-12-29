@@ -1,7 +1,10 @@
 {% extends "ecow/layout.html" %}
 
 {% block body %}
-
+{% if user.is_authenticated %}
+    <h2>Vous êtes déjà connecté</h2>
+    Déconnectez-vous <a href="{% url 'logout' %}">ici</a>
+{% else %}
     <h2>Portail des Ecos Ambassadeurs</h2>
     <p>Vous êtes eco-ambassadeur du LFILM? Connectez-vous ici!</p>
 
@@ -23,5 +26,5 @@
     </form>
    
     Vous n'avez pas encore de compte?<a href="{% url 'register' %}">Créez votre compte ici.</a>
-
+{% endif %}
 {% endblock %}

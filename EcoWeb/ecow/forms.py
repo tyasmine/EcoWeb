@@ -17,5 +17,30 @@ class UserForm(forms.ModelForm):
             'title': forms.Select(attrs={'class': 'form-control'}),
             'status': forms.Select(attrs={'class': 'form-control'}),
             'public': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'password': forms.TextInput(attrs={'class': "form-control", 'placeholder': "password"}),
+            'password': forms.TextInput(attrs={'class': "form-control", 'placeholder': "password", 'type': "password"}),
+        }
+
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields =('title', 'description', 'URL_image', 'categories')
+    
+    widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'titre'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'description'}),
+            'URL_image': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "URL d'une image pour illustrer ton article"}),
+            'categories': forms.Select(attrs={'class': 'form-control'}),
+        }
+
+class IdeaForm(forms.ModelForm):
+    class Meta:
+        model = Idea
+        fields =('title', 'description', 'URL_image', 'URL_video', 'categories')
+    
+    widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'titre'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'description'}),
+            'URL_image': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "URL d'une image pour illustrer ton article"}),
+            'URL_video': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "URL d'une vidéo pour illustrer ton article"}),
+            'categories': forms.Select(attrs={'class': 'form-control'}),
         }

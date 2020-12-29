@@ -2,16 +2,132 @@
 {% load static %}
 
 {% block nav %}
-<li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Link</a>
+  <!-- Navbar -->
+  <li class="nav-item">
+    <a class="nav-link" id="sec-1" aria-current="page" href="#mission">Mission</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" id="sec-2" href="#qui">Qui?</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" aria-current="page" href="#">Link</a>
+    <a class="nav-link" id="sec-3" aria-current="page" href="#contact">Contact</a>
   </li>
 {% endblock %}
 
 {% block body %}
+<!-- Presentation -->
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div style="margin-top:130px;" class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">ECO<span class="w3-hide-small">-</span>WEB</span>
+  </div>
+</div>
+<img src="https://i.pinimg.com/originals/2b/07/f6/2b07f62987e987d4e53e84aa8b963b83.gif" alt="image not available" id="imagep">
+
+<!-- Mission section -->
+<div class="w3-container item" style="padding:128px 16px;" id="one">
+  <h3 class="w3-center">NOTRE MISSION</h3>
+  <p id="quote">"Stop talking. Start Acting"</p>
+  <p class="w3-center w3-large">Excitavit hic ardor milites per municipia plurima, quae isdem conterminant, dispositos et castella, sed quisque serpentes latius pro viribus repellere moliens, nunc globis confertos, aliquotiens et dispersos multitudine superabatur ingenti, quae nata et educata inter editos recurvosque ambitus montium eos ut loca plana persultat et mollia, missilibus obvios eminus lacessens et ululatu truci perterrens.</p>
+</div>
+
+<!-- Team Section -->
+<div class="w3-container item" style="padding:128px 16px;" id="two">
+  <h3 class="w3-center">NOTRE EQUIPE</h3>
+  <p class="w3-center w3-large">Recontre les ecos-ambassadeurs derrière nos projets</p>
+  {% for user in users %}
+  <div class="w3-col l3 m6 w3-margin-bottom">
+    <div class="w3-card" style="margin: 10px;">
+      <img src="" alt="N.A." style="width:100%">
+      <div class="w3-container">
+        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        <p class="w3-opacity">{{ user.title }}, {{ user.status }}</p>
+        <p>{{ user.bio }}</p>
+        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+  <!-- Subscribe section -->
+  <div class="w3-container w3-black w3-padding-32 item" id="three">
+    <h1>Abonne-toi</h1>
+    <p>Pour te donner des idées et prendre part à nos projets!</p>
+    <p><input class="w3-input w3-border" type="text" placeholder="Ton adresse e-mail" style="width:100%"></p>
+    <button type="button" class="w3-button w3-green w3-margin-bottom">Abonne-toi</button>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+    <div class="w3-row-padding">
+      <div class="w3-col s4">
+        <h4>Contact</h4>
+        <p>Des questions? N'hésites pas</p>
+        <form action="/action_page.php" target="_blank">
+          <p><input class="w3-input w3-border" type="text" placeholder="Nom" name="Name" required></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Prénom" name="Email" required></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Sujet" name="Subject" required></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
+          <button type="submit" class="w3-button w3-block w3-black">Envoyer</button>
+        </form>
+      </div>
+
+      <div class="w3-col s4">
+        <h4>A propos</h4>
+        <p><a href="#">A propos de nous</a></p>
+      </div>
+
+      <div class="w3-col s4 w3-justify">
+        <h4>Suis-nous sur les réseaux!</h4>
+        <br>
+        <i style="font-size: 46px; color:blue;" class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i style="font-size: 46px; color: magenta;" class="fa fa-instagram w3-hover-opacity"></i>
+        <i style="font-size: 46px; color: red;" class="fa fa-youtube-play w3-hover-opacity"></i>
+      </div>
+    </div>
+  </footer>
+
+  <div class="w3-black w3-center w3-padding-24">Lycée Français International Louis Massignon</div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+    $('#sec-1').addClass("active");
+      $("#sec-1").click(function() {
+           $('html, body').animate({
+               scrollTop:        $("#one").offset().top-66
+           }, 1000);
+        return false;
+       });
+      
+      $("#sec-2").click(function() {
+           $('html, body') .animate({
+               scrollTop:        $("#two").offset().top-112
+           }, 1000);
+        return false;
+       });
+      
+      $("#sec-3").click(function() {
+           $(' html,body') .animate({
+               scrollTop:        $("#three").offset().top-112
+           }, 1000);
+        return false;
+       });
+
+       $('#two').waypoint(function() {
+      
+      $(".container ul li").children().removeClass("active");
+      $("#sec-2").addClass("active");
+      
+    }, { offset: 101 });
+    
+    $('#three').waypoint(function() {
+      $(".container ul li").children().removeClass("active");
+      $("#sec-3").addClass("active");
+    }, { offset: 101 });
+    
+    $('#one').waypoint(function() {
+      $(".container ul li").children().removeClass("active");
+      $("#sec-1").addClass("active");
+    }, { offset: 0 });
+  </script>
 {% endblock %}

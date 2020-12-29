@@ -1,0 +1,18 @@
+{% extends "ecow/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <a href="#" class="glitch" data-glitch="Articles">Articles</a>  
+    <h3 class="w3-center">Raise awareness</h3>
+    <p class="w3-center w3-large">Ecologie, réchauffement climatique, recyclage... Des sujets d'actualité qui te permettront d'en savoir d'avantage!</p>
+        {% for article in articles %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ article.URL }}" class="card-img-top" alt="Image is not available">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">{{ article.description }}</p>
+                    <a href="article/{{ article.id }}" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+        {% endfor %}
+{% endblock %}

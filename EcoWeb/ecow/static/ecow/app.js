@@ -1,10 +1,14 @@
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-const links = document.querySelectorAll(".nav-links li");
+var mySidebar = document.getElementById("mySidebar");
 
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-    links.forEach(link => {
-    link.classList.toggle("fade");
-  });
-});
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}

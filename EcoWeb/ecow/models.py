@@ -34,7 +34,7 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     public = models.BooleanField(default=False)
-    pdp = models.ImageField(null=True, blank=True, upload_to="images/")
+    pdp = models.ImageField(null=True, blank=True, upload_to='images/')
     seniority = models.IntegerField(default=2020)
     title = models.CharField(
         max_length=2,
