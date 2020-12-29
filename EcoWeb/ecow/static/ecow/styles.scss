@@ -2,6 +2,60 @@
 $green: rgb(65, 206, 36);
 $lightgreen: rgb(134, 224, 116);
 
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+html {
+    scroll-behavior: smooth;
+}
+
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
 * { 
     margin: 0; 
     padding: 0; 
@@ -14,6 +68,14 @@ $lightgreen: rgb(134, 224, 116);
 
 .w3-card {
     transition: transform .2s; /* Animation */
+}
+
+.sec-margin {
+    margin: 20px;
+}
+
+.white {
+    color: white;
 }
 
 .w3-card:hover {
@@ -41,10 +103,18 @@ $lightgreen: rgb(134, 224, 116);
     object-fit: cover;
 }
 
+#create-right {
+}
+
+#create-left {
+    margin-right:20px;
+}
+
 .create-items {
     display: inline-block;
     padding:40px;
     justify-content: center;
+    margin: auto;
     box-shadow: 5px 10px 18px #888888;
     margin-top: 30px;
     background-color: #328f8a;
@@ -60,6 +130,14 @@ $lightgreen: rgb(134, 224, 116);
         color: white;
         text-decoration: underline;
     }
+}
+
+.noselect {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .create-items:hover {
@@ -98,38 +176,6 @@ nav {
     background: gray;
     margin: 5px;
 }
-
-
-.hamburger {
-    position: absolute;
-    cursor: pointer;
-    padding-left:10px;
-    right: 5%;
-    padding-bottom:0;
-    top: 50%;
-    transform: translate(-5%, -50%);
-    z-index: 2;
-  }
-
-  .nav-links {
-    li a {
-        color: white;
-    }
-    position: fixed;
-    background: $green;
-    height: 100vh;
-    width: 100%;
-    flex-direction: column;
-    clip-path: circle(50px at 90% -10%);
-    -webkit-clip-path: circle(50px at 90% -10%);
-    transition: all 1s ease-out;
-    pointer-events: none;
-  }
-  .nav-links.open {
-    clip-path: circle(2000px at 90% -10%);
-    -webkit-clip-path: circle(2000px at 90% -10%);
-    pointer-events: all;
-  }
 
   .glitch {
 	font: {
@@ -181,7 +227,6 @@ nav {
 		font-size: 3em;
 	}
 }
-
 
 @keyframes glitch {
 	0% {

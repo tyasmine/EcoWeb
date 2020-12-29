@@ -41,32 +41,29 @@
           </div>
           <ul class="auth">
             {% if user.is_authenticated %}
-              <li>Hi <strong>{{ user.username }}</strong>!</li>
+              <li>Salut <strong>{{ user.username }}</strong>!</li>
             {% else %}
               <li><strong>Not signed in.</strong></li>
             {% endif %}
           </ul>
           <!-- Sidebar on small screens when clicking the menu icon -->
-          <a style="margin-left:250px;position:fixed;"href="javascript:void(0)" class="w3-bar-item w3-button w3-right" onclick="w3_open()">
-            <i class="fa fa-bars"></i>
-          </a>
-          <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left" style="display:none" id="mySidebar">
-            <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-            <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button"></a>
-            <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
-            <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">Nos articles</a>
-            <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">Boîte à idées</a>
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'articles' %}">Nos articles</a>
+            <a href="#">Boîte à idées</a>
             {% if user.is_authenticated %}
-            <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">Create</a>
-            <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">Logout</a>
+            <a href="{% url 'create' %}">Create</a>
+            <a href="{% url 'logout' %}">Logout</a>
             {% else %}
-            <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">Admin? Login</a>
-            <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">Inscris-toi</a>
+            <a href="{% url 'login' %}">Admin? Login</a>
+            <a href="{% url 'register' %}">Inscris-toi</a>
             {% endif %}
-          </nav>
+          </div>
+          <span onclick="openNav()"><i class="fa fa-bars"></i></span>
         </nav>
-        
-        <div style="margin:15px;">
+
+        <div style="margin:0px; padding:0px;" id="main">
         {% block body %}
         {% endblock%}
         </div>

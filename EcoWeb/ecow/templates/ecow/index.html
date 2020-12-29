@@ -4,13 +4,16 @@
 {% block nav %}
   <!-- Navbar -->
   <li class="nav-item">
-    <a class="nav-link" id="sec-1" aria-current="page" href="#mission">Mission</a>
+    <a class="nav-link" id="sec-1" href="#mission">Mission</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="sec-2" href="#qui">Qui?</a>
+    <a class="nav-link" id="sec-2" href="#nous">Nous</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="sec-3" aria-current="page" href="#contact">Contact</a>
+    <a class="nav-link" id="sec-3" href="#nosprojets">Projets</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="sec-4" href="#contact">Contact</a>
   </li>
 {% endblock %}
 
@@ -19,20 +22,34 @@
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div style="margin-top:130px;" class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">ECO<span class="w3-hide-small">-</span>WEB</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity noselect">ECO<span class="w3-hide-small">-</span>WEB</span>
   </div>
 </div>
-<img src="https://i.pinimg.com/originals/2b/07/f6/2b07f62987e987d4e53e84aa8b963b83.gif" alt="image not available" id="imagep">
+<img class="noselect" draggable="false" src="https://i.pinimg.com/originals/2b/07/f6/2b07f62987e987d4e53e84aa8b963b83.gif" alt="image not available" id="imagep">
 
 <!-- Mission section -->
-<div class="w3-container item" style="padding:128px 16px;" id="one">
+<div class="w3-container item" style="padding:128px 16px;" id="mission">
   <h3 class="w3-center">NOTRE MISSION</h3>
   <p id="quote">"Stop talking. Start Acting"</p>
   <p class="w3-center w3-large">Excitavit hic ardor milites per municipia plurima, quae isdem conterminant, dispositos et castella, sed quisque serpentes latius pro viribus repellere moliens, nunc globis confertos, aliquotiens et dispersos multitudine superabatur ingenti, quae nata et educata inter editos recurvosque ambitus montium eos ut loca plana persultat et mollia, missilibus obvios eminus lacessens et ululatu truci perterrens.</p>
 </div>
 
+<!-- Who we are -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="nous">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h3>Qui nous sommes</h3>
+      <p>Nous sommes des professeurs de toutes matières, des élèves de tout ages,<br>réunit pour la Terre...</p>
+      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i>Nos articles</a></p>
+    </div>
+    <div class="w3-col m6">
+      <img draggable="false" class="w3-image w3-round-large" src="https://andrewbolwell.files.wordpress.com/2018/06/mobilechallenge-4k-wallpaper-close-up-807598.jpg?w=1140&h=400&crop=1" alt="Buildings" width="700" height="394">
+    </div>
+  </div>
+</div>
+
 <!-- Team Section -->
-<div class="w3-container item" style="padding:128px 16px;" id="two">
+<div class="w3-container item" style="padding:128px 16px;">
   <h3 class="w3-center">NOTRE EQUIPE</h3>
   <p class="w3-center w3-large">Recontre les ecos-ambassadeurs derrière nos projets</p>
   {% for user in users %}
@@ -50,84 +67,148 @@
   {% endfor %}
 </div>
 
-
-  <!-- Subscribe section -->
-  <div class="w3-container w3-black w3-padding-32 item" id="three">
-    <h1>Abonne-toi</h1>
-    <p>Pour te donner des idées et prendre part à nos projets!</p>
-    <p><input class="w3-input w3-border" type="text" placeholder="Ton adresse e-mail" style="width:100%"></p>
-    <button type="button" class="w3-button w3-green w3-margin-bottom">Abonne-toi</button>
+<!-- Section "Statistics" -->
+<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">3+</span>
+    <br>Grand projets
   </div>
-  
-  <!-- Footer -->
-  <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
-    <div class="w3-row-padding">
-      <div class="w3-col s4">
-        <h4>Contact</h4>
-        <p>Des questions? N'hésites pas</p>
-        <form action="/action_page.php" target="_blank">
-          <p><input class="w3-input w3-border" type="text" placeholder="Nom" name="Name" required></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Prénom" name="Email" required></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Sujet" name="Subject" required></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
-          <button type="submit" class="w3-button w3-block w3-black">Envoyer</button>
-        </form>
-      </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">80+</span>
+    <br>Elèves concernés
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">10+</span>
+    <br>Professeurs engagés
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">25+</span>
+    <br>Idées innovées
+  </div>
+</div>
 
-      <div class="w3-col s4">
-        <h4>A propos</h4>
-        <p><a href="#">A propos de nous</a></p>
-      </div>
+<!-- Work Section -->
+<div class="w3-container" style="padding:128px 16px" id="nosprojets">
+  <h3 class="w3-center">NOS PROJETS</h3>
+  <p class="w3-center w3-large">Ce qu'on fait pour l'environnement</p>
 
-      <div class="w3-col s4 w3-justify">
-        <h4>Suis-nous sur les réseaux!</h4>
-        <br>
-        <i style="font-size: 46px; color:blue;" class="fa fa-facebook-official w3-hover-opacity"></i>
-        <i style="font-size: 46px; color: magenta;" class="fa fa-instagram w3-hover-opacity"></i>
-        <i style="font-size: 46px; color: red;" class="fa fa-youtube-play w3-hover-opacity"></i>
-      </div>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l3 m6">
+      <img src="{% static 'ecow/images/img1.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Notre kermesse">
     </div>
-  </footer>
+    <div class="w3-col l3 m6">
+      <img src="{% static 'ecow/images/img2.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="OneTipAWeek">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="{% static 'ecow/images/img3.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="OneTipAWeek">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="{% static 'ecow/images/img4.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Notre campagne">
+    </div>
+  </div>
+</div> 
+
+<!-- Subscribe section -->
+<div style="margin: 30px" class="w3-container w3-black w3-padding-32 item" id="contact">
+  <h1>Abonne-toi</h1>
+  <p>Pour te donner des idées et prendre part à nos projets!</p>
+  <p><input class="w3-input w3-border" type="text" placeholder="Ton adresse e-mail" style="width:100%"></p>
+  <button type="button" class="w3-button w3-green w3-margin-bottom">Abonne-toi</button>
+</div>
+
+<!-- Footer -->
+<footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+  <div class="w3-row-padding">
+    <div class="w3-col s4">
+      <h4>Contact</h4>
+      <p>Des questions? N'hésites pas</p>
+      <form action="/action_page.php" target="_blank">
+        <p><input class="w3-input w3-border" type="text" placeholder="Nom" name="Name" required></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Prénom" name="Email" required></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Sujet" name="Subject" required></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
+        <button type="submit" class="w3-button w3-block w3-black">Envoyer</button>
+      </form>
+    </div>
+
+    <div class="w3-col s4">
+      <h4>A propos</h4>
+      <p><a href="#">A propos de nous</a></p>
+    </div>
+
+    <div class="w3-col s4 w3-justify">
+      <h4>Suis-nous sur les réseaux!</h4>
+      <br>
+      <i style="font-size: 46px; color:blue;" class="fa fa-facebook-official w3-hover-opacity"></i>
+      <a><i href="https://www.instagram.com/massignon.s_greenlife/?hl=fr" style="font-size: 46px; color: magenta;" class="fa fa-instagram w3-hover-opacity"></i></a>
+      <a href="https://www.youtube.com/channel/UCFdOqyroRVbqnVzqFv9L7CA"><i style="font-size: 46px; color: red;" class="fa fa-youtube-play w3-hover-opacity"></i></a>
+    </div>
+  </div>
+</footer>
 
   <div class="w3-black w3-center w3-padding-24">Lycée Français International Louis Massignon</div>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js">
-    $('#sec-1').addClass("active");
-      $("#sec-1").click(function() {
-           $('html, body').animate({
-               scrollTop:        $("#one").offset().top-66
-           }, 1000);
-        return false;
-       });
-      
-      $("#sec-2").click(function() {
-           $('html, body') .animate({
-               scrollTop:        $("#two").offset().top-112
-           }, 1000);
-        return false;
-       });
-      
-      $("#sec-3").click(function() {
-           $(' html,body') .animate({
-               scrollTop:        $("#three").offset().top-112
-           }, 1000);
-        return false;
-       });
+  
+  
+<!-- Script -->
 
-       $('#two').waypoint(function() {
-      
-      $(".container ul li").children().removeClass("active");
-      $("#sec-2").addClass("active");
-      
-    }, { offset: 101 });
+<!-- Active class -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js">
+  $('#sec-1').addClass("active");
+    $("#sec-1").click(function() {
+          $('html, body').animate({
+              scrollTop:        $("#one").offset().top-66
+          }, 1000);
+      return false;
+      });
     
-    $('#three').waypoint(function() {
-      $(".container ul li").children().removeClass("active");
-      $("#sec-3").addClass("active");
-    }, { offset: 101 });
+    $("#sec-2").click(function() {
+          $('html, body') .animate({
+              scrollTop:        $("#two").offset().top-112
+          }, 1000);
+      return false;
+      });
     
-    $('#one').waypoint(function() {
-      $(".container ul li").children().removeClass("active");
-      $("#sec-1").addClass("active");
-    }, { offset: 0 });
-  </script>
+    $("#sec-3").click(function() {
+          $(' html,body') .animate({
+              scrollTop:        $("#three").offset().top-112
+          }, 1000);
+      return false;
+      });
+
+    $("#sec-4").click(function() {
+        $(' html,body') .animate({
+            scrollTop:        $("#three").offset().top-112
+        }, 1000);
+    return false;
+    });
+</script>
+
+<!-- Smooth scrolling -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
 {% endblock %}

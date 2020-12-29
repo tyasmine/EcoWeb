@@ -1,7 +1,7 @@
 {% extends "ecow/layout.html" %}
 
 {% block body %}
-
+<div class="sec-margin">
 {% if user.is_authenticated %}
     <h2>Vous êtes déjà connecté</h2>
     Déconnectez-vous <a href="{% url 'logout' %}">ici</a>
@@ -29,4 +29,5 @@
     </div>
     Vous avez déjà un compte? <a href="{% url 'login' %}">Connectez-vous ici.</a>
 {% endif %}
+</div>
 {% endblock %}
