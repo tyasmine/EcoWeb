@@ -26,8 +26,16 @@ SECRET_KEY = 'q%lq%de@y9gt_28nnb#ye2@gkum%lq#8djekvy_r3m-c4$5lf4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Email 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ecomass24@gmail.com'
+EMAIL_HOST_PASSWORD = 'Massignon2020'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -124,3 +132,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MAILCHIMP_API_KEY = '71c862c6a77ccc8f6f90489c6820cdd5-us7'
+MAILCHIMP_DATA_CENTER = 'us7'
+MAILCHIMP_EMAIL_LIST_ID = '9fa904d4dc'

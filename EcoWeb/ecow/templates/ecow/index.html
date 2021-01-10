@@ -35,32 +35,33 @@
 </div>
 
 <!-- Who we are -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="nous">
+<div class="w3-container w3-light-grey" style="padding:90px 16px" id="nous">
   <div class="w3-row-padding">
     <div class="w3-col m6">
       <h3>Qui nous sommes</h3>
       <p>Nous sommes des professeurs de toutes matières, des élèves de tout ages,<br>réunit pour la Terre...</p>
-      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i>Nos articles</a></p>
+      <p><a href="{% url 'articles' %}" class="w3-button w3-black"><i class="fa fa-th"> </i>Nos articles</a></p>
     </div>
     <div class="w3-col m6">
-      <img draggable="false" class="w3-image w3-round-large" src="https://andrewbolwell.files.wordpress.com/2018/06/mobilechallenge-4k-wallpaper-close-up-807598.jpg?w=1140&h=400&crop=1" alt="Buildings" width="700" height="394">
+      <img draggable="false" class="w3-image w3-round-large" src="{% static 'ecow/images/home.webp' %}" alt="Buildings" width="700" height="394">
     </div>
   </div>
 </div>
 
 <!-- Team Section -->
-<div class="w3-container item" style="padding:128px 16px;">
+<div class="w3-container item" style="padding:100px 16px;">
   <h3 class="w3-center">NOTRE EQUIPE</h3>
-  <p class="w3-center w3-large">Recontre les ecos-ambassadeurs derrière nos projets</p>
+  <p class="w3-center w3-large">Rencontre les ecos-ambassadeurs derrière nos projets</p>
   {% for user in users %}
   <div class="w3-col l3 m6 w3-margin-bottom">
-    <div class="w3-card" style="margin: 10px;">
-      <img src="" alt="N.A." style="width:100%">
+    <div class="w3-card" style="margin: 15px;">
       <div class="w3-container">
-        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        <h3 style="padding:20px;">{{ user.first_name }} {{ user.last_name }}</h3>
         <p class="w3-opacity">{{ user.title }}, {{ user.status }}</p>
         <p>{{ user.bio }}</p>
-        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        <p><a href="mailto:{{ user.email }}?subject=EcoWeb: Prise de contact">
+            <button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button>
+          </a></p>
       </div>
     </div>
   </div>
@@ -70,25 +71,25 @@
 <!-- Section "Statistics" -->
 <div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
   <div class="w3-quarter">
-    <span class="w3-xxlarge">3+</span>
+    <span class="w3-xxlarge zoom">3+</span>
     <br>Grand projets
   </div>
   <div class="w3-quarter">
-    <span class="w3-xxlarge">80+</span>
+    <span class="w3-xxlarge zoom">80+</span>
     <br>Elèves concernés
   </div>
   <div class="w3-quarter">
-    <span class="w3-xxlarge">10+</span>
+    <span class="w3-xxlarge zoom">10+</span>
     <br>Professeurs engagés
   </div>
   <div class="w3-quarter">
-    <span class="w3-xxlarge">25+</span>
+    <span class="w3-xxlarge zoom">25+</span>
     <br>Idées innovées
   </div>
 </div>
 
 <!-- Work Section -->
-<div class="w3-container" style="padding:128px 16px" id="nosprojets">
+<div class="w3-container" style="padding:128px 16px; margin-bottom:120px;" id="nosprojets">
   <h3 class="w3-center">NOS PROJETS</h3>
   <p class="w3-center w3-large">Ce qu'on fait pour l'environnement</p>
 
@@ -122,25 +123,26 @@
     <div class="w3-col s4">
       <h4>Contact</h4>
       <p>Des questions? N'hésites pas</p>
-      <form action="/action_page.php" target="_blank">
-        <p><input class="w3-input w3-border" type="text" placeholder="Nom" name="Name" required></p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Prénom" name="Email" required></p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Sujet" name="Subject" required></p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
+      <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <p><input class="w3-input w3-border" type="text" placeholder="Nom" name="last_name" required></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Prénom" name="first_name" required></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Sujet" name="subject" required></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Message" name="message" required></p>
         <button type="submit" class="w3-button w3-block w3-black">Envoyer</button>
       </form>
     </div>
 
     <div class="w3-col s4">
       <h4>A propos</h4>
-      <p><a href="#">A propos de nous</a></p>
+      <p><a href="{% url 'aboutus' %}">A propos de nous</a></p>
     </div>
 
     <div class="w3-col s4 w3-justify">
       <h4>Suis-nous sur les réseaux!</h4>
       <br>
       <i style="font-size: 46px; color:blue;" class="fa fa-facebook-official w3-hover-opacity"></i>
-      <a><i href="https://www.instagram.com/massignon.s_greenlife/?hl=fr" style="font-size: 46px; color: magenta;" class="fa fa-instagram w3-hover-opacity"></i></a>
+      <a href="https://www.instagram.com/massignon.s_greenlife/?hl=fr"><i style="font-size: 46px; color: magenta;" class="fa fa-instagram w3-hover-opacity"></i></a>
       <a href="https://www.youtube.com/channel/UCFdOqyroRVbqnVzqFv9L7CA"><i style="font-size: 46px; color: red;" class="fa fa-youtube-play w3-hover-opacity"></i></a>
     </div>
   </div>
@@ -148,7 +150,7 @@
 
   <div class="w3-black w3-center w3-padding-24">Lycée Français International Louis Massignon</div>
   
-  
+
 <!-- Script -->
 
 <!-- Active class -->

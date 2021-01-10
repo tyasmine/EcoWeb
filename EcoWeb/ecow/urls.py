@@ -9,4 +9,5 @@ urlpatterns = [
     path("articles", views.articles_display, name="articles"),
     path("create", views.create, name="create"),
     path("create/<str:key>", views.create_object, name="create_object"),
+    path("aboutus", views.about_us, name="aboutus"),
 ]

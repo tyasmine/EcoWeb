@@ -8,7 +8,7 @@
     </div>
 {% endif %}
 
-<div class="form-group" id="create">
+<div class="form-group">
     <h1 id="new">Modifie le site web, crée ton <strong>{{ type }}!</strong></h1>
     <form action="{% url 'create_object' %}" method="post">
         {% csrf_token %}

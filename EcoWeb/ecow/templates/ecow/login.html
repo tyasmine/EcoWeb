@@ -1,32 +1,42 @@
-{% extends "ecow/layout.html" %}
+{% extends "ecow/layoutportail.html" %}
+{% load static %}
 
 {% block body %}
-<div class="sec-margin">
 {% if user.is_authenticated %}
+<div class="already-box">
     <h2>Vous êtes déjà connecté</h2>
-    Déconnectez-vous <a style="color:green;" href="{% url 'logout' %}">ici</a>
+    Déconnectez-vous <a class="green" href="{% url 'logout' %}">ici</a>
+</div>
 {% else %}
-    <h2>Portail des Ecos Ambassadeurs</h2>
-    <p>Vous êtes eco-ambassadeur du LFILM? Connectez-vous ici!</p>
+<div class="container" id="container">
+    <div class="form-container log-in-container">
+            {% if message %}
+                <div>{{ message }}</div>
+            {% endif %}
 
-    {% if message %}
-        <div>{{ message }}</div>
-    {% endif %}
-
-    <form action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Login">
+                </div>
+                <p><a class="green" href="{% url 'index' %}"><i class="fa fa-arrow-left"></i> Retourne à l'EcoWeb</a></p>
+            </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-right">
+                <h1>Portail des Eco-Ambassadeurs</h1>
+                <p>Vous êtes eco-ambassadeur du LFILM? Connectez-vous ici!</p>
+                <p>Vous n'avez pas encore de compte? <a href="{% url 'register' %}">Créez votre compte ici.</a></p>
+            </div>
         </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <input class="btn btn-primary" type="submit" value="Login">
-        </div>
-    </form>
-   
-    Vous n'avez pas encore de compte? <a style="color:rgb(0, 102, 255);" href="{% url 'register' %}">Créez votre compte ici.</a>
+    </div>
 </div>
 {% endif %}
 {% endblock %}

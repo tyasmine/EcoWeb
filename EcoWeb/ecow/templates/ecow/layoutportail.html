@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+         <!-- required meta tags -->
+         <meta charset="UTF-8" />
+         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+          <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <link rel="stylesheet" href="{% static 'ecow/styles.css' %}">
+         <!-- credit: https://iconarchive.com/show/noto-emoji-animals-nature-icons-by-google/22330-deciduous-tree-icon.html -->
+         <link href="{% static 'ecow/tree.ico' %}" rel="icon">
+        <title>Login</title>
+    </head>
+    <body id="portail">
+        {% block body %}
+        {% endblock %}
+        <ul style="z-index:-1;" class="background">
+            <li class="green"></li>
+            <li class="green"></li>
+            <li class="green"></li>
+            <li class="green"></li>
+            <li class="green"></li>
+            <li class="blue"></li>
+            <li class="blue"></li>
+            <li class="blue"></li>
+            <li class="blue"></li>
+            <li class="blue"></li>
+        </ul>
+    </body>
+</html>

@@ -9,19 +9,37 @@ from django.forms import ModelForm
 from .forms import UserForm, ArticleForm, IdeaForm
 from .models import User, Article, Idea, Comment_Article, Comment_Idea
 from django.http import Http404
+from django.conf import settings
+from django.core.mail import send_mail
 
 # Display
 def index(request):
+    # Send Email
+    if request.method == 'POST':
+        message = request.POST['message']
+        subject = request.POST['subject']
+
+        send_mail(subject, 
+        message, 
+        settings.EMAIL_HOST_USER, 
+        ['eco.ambassadeurs.massignon@gmail.com'], 
+        fail_silently = False)
+
+    # Display users (team section)
     users = User.objects.all()
     return render(request, "ecow/index.html", {
         "users": users,
     })
 
 def articles_display(request):
+    # Display articles
     articles = Article.objects.all()
     return render(request, "ecow/articles.html", {
         "articles": articles,
     })
+
+def about_us(request):
+    return render(request, "ecow/aboutus.html")
 
 @login_required
 def create(request):
