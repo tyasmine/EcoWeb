@@ -7,19 +7,18 @@ This project was realized by:
 Tazi Yasmine, Web developper
 GitHub account: tyasmine5
 
+Syrine Benouna, Fellow Programmer
+GitHub account: syrben
+
+Lahlou Itto, Illustrator and animator
+Youtube channel: Diesel
+
+Redactors:
+Rita
 Ismail
-
-Syrine Benouna, Programmer
-GitHub account:
-
-Rita, Redactor
-Email-address:
-
-Lahlou Itto, Illustrator
-Discord account: diesel
 
 Under the direction of:
 
 Cavalade Charlotte, Biology teacher
-Bourouayel Najatte, French teacher
 Conny Gwenola, French teacher 
+Bourouayel Najatte, French teacher
