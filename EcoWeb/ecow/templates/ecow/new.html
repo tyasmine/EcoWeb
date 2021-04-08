@@ -4,17 +4,16 @@
 {% block body %}
 {% if invalid %}
     <div class="alert alert-warning" role="alert">
-        Sorry, the form you submitted is invalid
+        Le formulaire rempli est invalide. Veuillez remplir adéquatement l'ensemble des champs.
     </div>
 {% endif %}
 
-<div class="form-group">
-    <h1 id="new">Modifie le site web, crée ton <strong>{{ type }}!</strong></h1>
-    <form action="{% url 'create_object' %}" method="post">
+<div style="margin: 30px;" id="new_div" class="form-group">
+    <h1 id="new">Modifie le site web, crée ton <strong>{{ type }}</strong></h1>
+    <form action="/{{ URL }}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <input class="btn btn-primary" type="submit" value="Save" id="createbutton">
-        <input name="type" type="hidden" value="{{ type }}">
+        <input class="btn btn-primary" type="submit" value="Enregistrer" id="createbutton">
     </form>
 </div>
 {% endblock %}

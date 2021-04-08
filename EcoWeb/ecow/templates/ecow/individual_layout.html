@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang=fr>
+    <head>
+         <!-- required meta tags -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+         <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'ecow/styles.css' %}">
+        <!-- credit: https://iconarchive.com/show/noto-emoji-animals-nature-icons-by-google/22330-deciduous-tree-icon.html -->
+        <link href="{% static 'ecow/tree.ico' %}" rel="icon">
+        <title>EcoWeb</title>
+    </head>
+    <body>
+        <style>
+            @media (max-width: 667px) {
+                h1{
+                    font-size: 1.8rem;
+                    line-height: 2.6rem;
+                    text-align: left;
+                }
+                .content{
+                    margin: 0 auto;
+                    max-width: 90%;
+                    width: 100%;
+                    height: 100%;
+                    text-align: justify;
+                }
+                .zoom{
+                    overflow: hidden;
+                    padding-bottom: 75%;
+                }
+            }
+        </style>
+
+        <div id="body_container">
+            <!-- Display messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div style="text-align: center;" class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+
+            {% if object.URL_image != "https://static.thenounproject.com/png/1554490-200.png" %}
+                <header class="zoom">
+                    <img src="{{ object.URL_image }}">
+                </header>
+            {% endif %}
+            <main role="main">
+                <div class="content">
+                    <h1>{{ object.title }}</h1>
+                    <div id="text"><p>{{ object.description }}</p></div>
+                    {% if object.URL_video != "" %}
+                        <iframe width="420" height="315" 
+                            src="{{ object.URL_video }}">
+                        </iframe>
+                    {% endif %}
+                    <footer>
+                        <p>Crée par {{ object.user }} le {{ object.date }}</p>
+                    </footer>
+                        <!-- Comment section -->
+                        <div class="comment-section">
+                            <!-- See comments -->
+                            <div>
+                                <h1 id="comment_title">Commentaires</h1>
+                                <div style="margin: 30px;">
+                                    {% if comments == False %}
+                                        <p>Soyez le premier à commenter!</p>
+                                    {% else %}
+                                        {% for comment in comments %}
+                                            <h6 style="color: lightslategray"><i style="color:rgb(0, 89, 255);">{{ comment.user }}</i> - {{ comment.date }}</h6>
+                                            <p style="margin-left: 10px; font-size: 17px;">{{ comment.comment }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Comment form -->
+                            <div style="margin-top: 20px;" class="form-group">
+                                <h4 style="color:rgb(0, 89, 255); margin-bottom: 20px;">Donnez votre avis</h4>
+                                <form action="/article/{{ key }}" method="post">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <input class="btn btn-primary" type="submit" value="Commentez!">
+                                </form>
+                            </div>
+                            <p><a class="green" href="{% url 'index' %}"><i class="fa fa-arrow-left"></i> Retourne à l'EcoWeb</a></p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script>
+            $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+            $(".zoom img").css({
+                transform: 'translate3d(-50%, -'+(scroll/100)+'%, 0) scale('+(100 + scroll/5)/100+')',
+            });
+        });
+        </script>
+    </body>
+</html>

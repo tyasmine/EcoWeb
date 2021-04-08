@@ -124,6 +124,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -136,3 +137,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MAILCHIMP_API_KEY = '71c862c6a77ccc8f6f90489c6820cdd5-us7'
 MAILCHIMP_DATA_CENTER = 'us7'
 MAILCHIMP_EMAIL_LIST_ID = '9fa904d4dc'
+
+
+
+

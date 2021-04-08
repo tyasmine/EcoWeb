@@ -1,0 +1,143 @@
+{% extends "ecow/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <!-- Display messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div style="text-align: center;" class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <a href="#" class="glitch" style="font-size: 80px;" data-glitch="Eco-Boutique">Eco-Boutique</a>  
+    <h3 style="margin-top: 250px;" class="w3-center create-text">Soutiens l'écologie!</h3>
+    <p class="w3-center w3-large">T-shirts, hoodies, and more.</p>
+
+    <div id="make-3D-space">
+        <div class="product-card">
+            <div class="product-front">
+              <div class="shadow"></div>
+                <img height="110%" src="{% static 'ecow/images/products/tshirt1.jpeg' %}" alt="" />
+                <div class="image_overlay"></div>
+                <div class="view_details">PHOTOS</div>
+                <div class="stats">         
+                    <div class="stats-container">
+                        <span class="product_price">200MAD</span>
+                        <span class="product_name">Eco-T-Shirt</span>    
+                        <p>HOMMES ET FEMMES</p>                                            
+                        <div class="product-options">
+                            <strong>TAILLES DISPONIBLES</strong>
+                            <span>XS, S, M, L, XL</span>
+                        </div>                       
+                    </div>                         
+                </div>
+            </div>
+            <div class="product-back">
+              <div class="shadow"></div>
+                <div id="carousel_one" class="carousel">
+                    <ul>
+                        <li><img width="150%" src="{% static 'ecow/images/products/tshirt1.jpeg' %}" alt="" /></li>
+                        <li><img width="150%" src="{% static 'ecow/images/products/tshirt2.jpeg' %}" alt="" /></li>
+                    </ul>
+                    <div class="arrows-perspective">
+                        <div id="carouselPrev_one" class="carouselPrev">
+                            <div class="y"></div>
+                          <div class="x"></div>
+                        </div>
+                        <div id="carouselNext_one" class="carouselNext">
+                            <div class="y"></div>
+                          <div class="x"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-back">
+                  <div class="cy"></div>
+                    <div class="cx"></div>
+                </div>
+            </div>    
+        </div>  
+    </div>  
+
+    <div id="make-3D-space2">
+        <div class="product-card">
+            <div class="product-front">
+              <div class="shadow"></div>
+                <img height="110%" src="{% static 'ecow/images/products/pull.jpeg' %}" alt="" />
+                <div class="image_overlay"></div>
+                <div class="view_details">PHOTOS</div>
+                <div class="stats">         
+                    <div class="stats-container">
+                        <span class="product_price">250MAD</span>
+                        <span class="product_name">Eco-Pull</span>    
+                        <p>HOMMES ET FEMMES</p>                                            
+                        <div class="product-options">
+                            <strong>TAILLES DISPONIBLES</strong>
+                            <span>XS, S, M, L, XL</span>
+                        </div>                       
+                    </div>                         
+                </div>
+            </div>
+            <div class="product-back">
+              <div class="shadow"></div>
+                <div id="carousel_two" class="carousel">
+                    <ul>
+                        <li><img width="150%" src="{% static 'ecow/images/products/pull.jpeg' %}" alt="" /></li>
+                        <li><img width="150%" src="{% static 'ecow/images/products/all.jpeg' %}" alt="" /></li>
+                    </ul>
+                    <div class="arrows-perspective">
+                        <div id="carouselPrev_two" class="carouselPrev">
+                            <div class="y"></div>
+                          <div class="x"></div>
+                        </div>
+                        <div id="carouselNext_two" class="carouselNext">
+                            <div class="y"></div>
+                          <div class="x"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-back">
+                  <div class="cy"></div>
+                    <div class="cx"></div>
+                </div>
+            </div>    
+        </div>  
+    </div>  
+
+    <div id="make-3D-space3">
+        <div class="product-card">
+            <div class="product-front">
+              <div class="shadow"></div>
+                <img height="110%" src="{% static 'ecow/images/products/hoodie.jpeg' %}" alt="" />
+                <div class="image_overlay"></div>
+                <div class="view_details">PHOTOS</div>
+                <div class="stats">         
+                    <div class="stats-container">
+                        <span class="product_price">250MAD</span>
+                        <span class="product_name">Eco-Hoodie</span>    
+                        <p>HOMMES ET FEMMES</p>                                            
+                        <div class="product-options">
+                            <strong>TAILLES DISPONIBLES</strong>
+                            <span>XS, S, M, L, XL</span>
+                        </div>                       
+                    </div>                         
+                </div>
+            </div>
+            <div class="product-back">
+              <div class="shadow"></div>
+                <div id="carousel_three" class="carousel">
+                    <ul>
+                        <li><img width="150%" src="{% static 'ecow/images/products/hoodie.jpeg' %}" alt="" /></li>
+                    </ul>
+                </div>
+                <div class="flip-back">
+                  <div class="cy"></div>
+                    <div class="cx"></div>
+                </div>
+            </div>    
+        </div>  
+    </div>  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="{% static 'ecow/app.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+{% endblock %}

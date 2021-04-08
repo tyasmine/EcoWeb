@@ -1,0 +1,50 @@
+{% extends "ecow/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <!-- Display messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div style="text-align: center;" class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    {% if type == "article" %}
+        <a href="#" class="glitch" data-glitch="Articles">Articles</a>  
+        <h3 style="margin-top: 250px;" class="w3-center create-text">Raise awareness</h3>
+        <p class="w3-center w3-large">Ecologie, réchauffement climatique, recyclage... Des sujets d'actualité qui te permettront d'en savoir d'avantage!</p>
+        <div class="dropdown">
+            <button class="dropbtn">Catégories</button>
+            <div class="dropdown-content">
+            <a href="/articles">Général</a>
+            <a href="/articles/CH">Changement Climatique</a>
+            <a href="/articles/EN">Energies renouvelables</a>
+            <a href="/articles/RE">Recyclage</a>
+            <a href="/articles/SA">Santé</a>
+            </div>
+          </div>
+    {% elif type == "idea" %}
+        <a href="#" style="font-size: 80px;" class="glitch" data-glitch="Boîte à idées">Boîte à idées</a>  
+        <h3 style="margin-top: 250px;" class="w3-center create-text">Contribue toi aussi au mouvement écologique!</h3>
+        <p class="w3-center w3-large">Des tutoriels pour te guider, des DIY...</p>
+    {% else %}
+        <a href="#" class="glitch" data-glitch="Projets">Projets</a>  
+        <h3 style="margin-top: 250px;" class="w3-center create-text">Stop talking, start acting!</h3>
+        <p class="w3-center w3-large">Découvre les projets que nous avons menés pour l'environnement</p>
+    {% endif %}
+
+    {% for object in objects %}
+        <div class="w3-col l3 m6 w3-margin-bottom" style="margin: auto; margin-top: 50px;">
+            <div class="w3-card" style="margin:30px;">
+              <div class="w3-container">
+                <img style="margin-top: 10px; height: 170px;" src="{{ object.URL_image }}" class="card-img-top" alt="Image is not available">
+                <h3 style="margin-top: 10px;">{{ object.title }}   <img src="https://img.icons8.com/windows/32/000000/chat-messages--v1.png"/></h3>
+                <p class="w3-opacity">Crée par {{ object.user }} le {{ object.date }}</p>
+                <p><a href="{{ type }}/{{ object.id }}">
+                    <button class="w3-button w3-blue w3-block">En savoir plus</button>
+                  </a></p>
+              </div>
+            </div>
+          </div>
+    {% endfor %}
+{% endblock %}

@@ -25,7 +25,7 @@
           <div class="container" style="margin-left:0;">
             <!--Icon-->
             <div class="tree">
-                <img src="{% static 'ecow/tree.ico' %}" alt="tree">
+                <img src="{% static 'ecow/images/logo.png' %}" alt="logo">
             </div>
             <a class="navbar-brand" href="{% url 'index' %}">EcoWeb</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -42,13 +42,15 @@
               <li><strong>Pas connecté.</strong></li>
             {% endif %}
           </ul>
-          <!-- Sidebar on small screens when clicking the menu icon -->
-          <div id="mySidenav" class="sidenav">
+          <!-- Sidebar when clicking the menu icon -->
+          <div id="mySidenav" class="sidenav" style="z-index: 1000;">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="{% url 'index' %}">Home</a>
             <a href="{% url 'articles' %}">Nos articles</a>
-            <a href="#">Boîte à idées</a>
-            <a href="#">Gallerie</a>
+            <a href="{% url 'ideas' %}">Boîte à idées</a>
+            <a href="{% url 'projects' %}">Projets</a>
+            <a href="{% url 'portfolio' %}">Galerie</a>
+            <a href="{% url 'products' %}">Eco-Boutique</a>
             {% if user.is_authenticated %}
             <a href="{% url 'create' %}">Créer</a>
             <a href="{% url 'logout' %}">Logout</a>

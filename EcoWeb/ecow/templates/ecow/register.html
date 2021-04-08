@@ -3,38 +3,48 @@
 
 
 {% block body %}
+
 {% if user.is_authenticated %}
 <div class="already-box">
     <h2 >Vous êtes déjà connecté</h2>
     Déconnectez-vous <a class="green" href="{% url 'logout' %}">ici</a>
 </div>
 {% else %}
-<div style="height: 1900px; width:800px;" class="container" id="container">
-    <div class="form-container log-in-container">
+<div style="height: 735px; width:1000px; margin-bottom: 15px; margin-top: 15px;" class="container" id="container">
+    <div class="form-container log-in-container" style="width:600px;">
             {% if message %}
                 <div>{{ message }}</div>
             {% endif %}
 
             <form action="{% url 'register' %}" method="post" encytpe="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <div class="form-group" encytpe="multipart/form-data">
-                    <input style="width:120%;" class="form-control" type="password" name="confirmation" placeholder="Confirmation de mot de passe">
+                <div class="form-container log-in-container" style="display:inline-block;">
+                    <div id="form-left" style="display:inline-block; width: 250px; height: 700px;">
+                        {% csrf_token %}
+                        {{ form_one.as_p }}
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input class="form-control" type="password" name="code" placeholder="Code d'accès">
+                <div id="form-right" style="display:inline-block; width: 250px; margin-left: 250px; height: 800px;">
+                    {% csrf_token %}
+                    {{ form_two.as_p }}
+
+                    <div class="form-group" encytpe="multipart/form-data">
+                        <input style="width:100%;" class="form-control" type="password" name="confirmation" placeholder="Confirmation de mdp">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="code" placeholder="Code d'accès">
+                    </div>
+                    <small id="emailHelp" class="form-text text-muted">Le code d'accès est fourni par votre référent. Contactez-nous pour plus d'informations</small>
+                    <input class="btn btn-primary" type="submit" value="Inscris-toi!">
                 </div>
-                <small id="emailHelp" class="form-text text-muted">Le code d'accès est fourni par votre référent. Contactez-nous pour plus d'informations</small>
-                <input class="btn btn-primary" type="submit" value="Inscris-toi!">
-                <p><a class="green" href="{% url 'index' %}"><i class="fa fa-arrow-left"></i> Retourne à l'EcoWeb</a></p>
             </form>
     </div>
     <div class="overlay-container">
         <div class="overlay">
-            <div class="overlay-panel overlay-right">
+            <div class="overlay-panel overlay-right" style="margin-right: -40px;">
                 <h1>Portail des Eco-Ambassadeurs</h1>
-                <p>Vous êtes eco-ambassadeur du LFILM? Inscrivez-vous ici!</p>
-                <p>Vous avez déjà un compte? <a href="{% url 'register' %}">Connectez-vous ici.</a></p>
+                <p>Vous êtes eco-ambassadeur du LFILM?<br>Inscrivez-vous ici!</p>
+                <p>Vous avez déjà un compte?<br><a href="{% url 'login' %}">Connectez-vous ici.</a></p>
+                <p><a class="green" href="{% url 'index' %}"><i class="fa fa-arrow-left"></i> Retourne à l'EcoWeb</a></p>
             </div>
         </div>
     </div>

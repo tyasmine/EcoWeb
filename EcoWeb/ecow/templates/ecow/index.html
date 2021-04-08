@@ -29,9 +29,10 @@
 
 <!-- Mission section -->
 <div class="w3-container item" style="padding:128px 16px;" id="mission">
+  <img draggable="false" width="5%" height="5%" src="{% static 'ecow/images/logo.png' %}" style="margin-right:52.5%; margin-left:47.5%; margin-top:-38px; margin-bottom: 8px;">
   <h3 class="w3-center">NOTRE MISSION</h3>
   <p id="quote">"Stop talking. Start Acting"</p>
-  <p class="w3-center w3-large">Excitavit hic ardor milites per municipia plurima, quae isdem conterminant, dispositos et castella, sed quisque serpentes latius pro viribus repellere moliens, nunc globis confertos, aliquotiens et dispersos multitudine superabatur ingenti, quae nata et educata inter editos recurvosque ambitus montium eos ut loca plana persultat et mollia, missilibus obvios eminus lacessens et ululatu truci perterrens.</p>
+  <p class="w3-center w3-large" style="margin-right: 10px; margin-left: 10px;">Les Eco-Ambassadeurs du Lycée Français International Louis Massignon regroupent les élèves de la sixième à la terminale. Leur but est de sensibiliser les élèves à l'écologie, et promouvoir des actions écologiques au sein de l'établissement.</p>
 </div>
 
 <!-- Who we are -->
@@ -57,7 +58,11 @@
     <div class="w3-card" style="margin: 15px;">
       <div class="w3-container">
         <h3 style="padding:20px;">{{ user.first_name }} {{ user.last_name }}</h3>
-        <p class="w3-opacity">{{ user.title }}, {{ user.status }}</p>
+        {% if user.title == "EC" %}
+          <p class="w3-opacity">Eco-ambassadeur, {{ user.status }}</p>
+        {% else %}
+          <p class="w3-opacity">Eco-ambassadeur d'Honneur, {{ user.status }}</p>
+        {% endif %}
         <p>{{ user.bio }}</p>
         <p><a href="mailto:{{ user.email }}?subject=EcoWeb: Prise de contact">
             <button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button>
@@ -109,6 +114,7 @@
   </div>
 </div> 
 
+
 <!-- Subscribe section -->
 <div style="margin: 30px" class="w3-container w3-black w3-padding-32 item" id="contact">
   <h1>Abonne-toi</h1>
@@ -136,12 +142,13 @@
     <div class="w3-col s4">
       <h4>A propos</h4>
       <p><a href="{% url 'aboutus' %}">A propos de nous</a></p>
+      <p><a href="{% url 'credits' %}">Crédits</a></p>
     </div>
 
     <div class="w3-col s4 w3-justify">
       <h4>Suis-nous sur les réseaux!</h4>
       <br>
-      <i style="font-size: 46px; color:blue;" class="fa fa-facebook-official w3-hover-opacity"></i>
+      <a href="https://web.facebook.com/LFILOUISMASSIGNON/?_rdc=1&_rdr"><i style="font-size: 46px; color:blue;" class="fa fa-facebook-official w3-hover-opacity"></i></a>
       <a href="https://www.instagram.com/massignon.s_greenlife/?hl=fr"><i style="font-size: 46px; color: magenta;" class="fa fa-instagram w3-hover-opacity"></i></a>
       <a href="https://www.youtube.com/channel/UCFdOqyroRVbqnVzqFv9L7CA"><i style="font-size: 46px; color: red;" class="fa fa-youtube-play w3-hover-opacity"></i></a>
     </div>

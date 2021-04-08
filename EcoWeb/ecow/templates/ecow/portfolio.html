@@ -1,0 +1,57 @@
+{% extends "ecow/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <style>
+        .w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
+        .w3-third img:hover{opacity: 1}
+    </style>
+
+    <a href="#" class="glitch" data-glitch="Galerie">Galerie</a>
+    <h3 class="w3-center create-text">_____________________</h3>
+    
+    <div class="w3-row" id="myGrid" style="margin-bottom:128px">
+        <div class="w3-third">
+            {% for pic in images_pics_one %}
+                <img src="media/{{ pic.FIELD_image }}" style="width:100%" onclick="onClick(this)" alt="{{ pic.title }}">
+            {% endfor %} 
+            {% for pic in ideas_pics %}
+                {% if pic.URL_image != "https://static.thenounproject.com/png/1554490-200.png" %}
+                    <img src="{{ pic.URL_image }}" style="width:100%" onclick="onClick(this)" alt="Du tutoriel {{ pic.title }}">
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="w3-third">
+            {% for pic in images_pics_two %}
+                <img src="media/{{ pic.FIELD_image }}" style="width:100%" onclick="onClick(this)" alt="{{ pic.title }}">
+            {% endfor %} 
+            {% for pic in projects_pics %}
+                {% if pic.URL_image != "https://static.thenounproject.com/png/1554490-200.png" %}
+                    <img src="{{ pic.URL_image }}" style="width:100%" onclick="onClick(this)" alt="Du projet {{ pic.title }}">
+                {% endif %}
+            {% endfor %}
+            {% for pic in articles_pics %}
+                {% if pic.URL_image != "https://static.thenounproject.com/png/1554490-200.png" %}
+                    <img src="{{ pic.URL_image }}" style="width:100%" onclick="onClick(this)" alt="De l'article {{ pic.title }}">
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="w3-third">
+            {% for pic in images_pics_three %}
+                <img src="media/{{ pic.FIELD_image }}" style="width:100%" onclick="onClick(this)" alt="{{ pic.title }}">
+            {% endfor %} 
+        </div>
+    </div>
+
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+        <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <p id="caption"></p>
+        </div>
+    </div>
+
+    <script src="{% static 'ecow/app.js' %}"></script>
+            
+{% endblock %}

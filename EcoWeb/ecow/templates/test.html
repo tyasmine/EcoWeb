@@ -1,0 +1,24 @@
+<div style="display: hidden" id="showdiv">
+    <form method="post" id="showform" action="products/command">
+        <input class="form-control" type="text" name="first_name" placeholder="ton prénom" value="Prénom">
+        <input class="form-control" type="text" name="last_name" placeholder="ton nom" value="Nom">
+        <input class="form-control" type="email" name="email" placeholder="ton adresse email" value="Email">
+        <input class="form-control" type="button" value="Commande ton article!">
+    </form>
+
+    <label for="product">Choisis ton article</label>
+    <select id="product" name="product_type" form="showform">
+        <option value="tshirt">T-Shirt</option>
+        <option value="pull">Pull</option>
+        <option value="hoodie">Hoodie</option>
+    </select>
+
+    <label for="size">Choisis ta taille</label>
+    <select id="size" name="size_value" form="showform">
+        <option value="X">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+</div>

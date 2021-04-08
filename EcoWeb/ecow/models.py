@@ -50,8 +50,9 @@ class User(AbstractUser):
 class Article(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=250)
-    description = models.CharField(max_length=1000)
-    URL_image = models.URLField(default="https://www.westernheights.k12.ok.us/wp-content/uploads/2020/01/No-Photo-Available.jpg") # Credit : https://www.westernheights.k12.ok.us/resources/special-services/no-photo-available/
+    description = models.CharField(max_length=5000)
+    URL_image = models.URLField(default="https://static.thenounproject.com/png/1554490-200.png") # Credit : https://www.westernheights.k12.ok.us/resources/special-services/no-photo-available/
+    URL_video = models.URLField(blank=True)
     date = models.DateTimeField(auto_now=True)
 
     GENERAL = 'GE'
@@ -74,12 +75,20 @@ class Article(models.Model):
         default=GENERAL,
     )
 
+class Product(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=250)
+    description = models.CharField(max_length=5000)
+    URL_image = models.URLField(default="https://static.thenounproject.com/png/1554490-200.png") # Credit : https://www.westernheights.k12.ok.us/resources/special-services/no-photo-available/
+    price = models.IntegerField()
+    date = models.DateTimeField(auto_now=True)
+
 class Idea(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=250)
-    description = models.CharField(max_length=1000)
-    URL_image = models.URLField(default="https://www.westernheights.k12.ok.us/wp-content/uploads/2020/01/No-Photo-Available.jpg") # Credit : https://www.westernheights.k12.ok.us/resources/special-services/no-photo-available/
-    URL_video = models.URLField(default="not_available")
+    description = models.CharField(max_length=5000)
+    URL_image = models.URLField(default="https://static.thenounproject.com/png/1554490-200.png") # Credit : https://www.westernheights.k12.ok.us/resources/special-services/no-photo-available/
+    URL_video = models.URLField(blank=True)
     date = models.DateTimeField(auto_now=True)
 
     GENERAL = 'GE'
@@ -102,14 +111,37 @@ class Idea(models.Model):
         default=GENERAL,
     )
 
+class Project(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=250)
+    description = models.CharField(max_length=5000)
+    URL_image = models.URLField(default="https://static.thenounproject.com/png/1554490-200.png") # Credit : https://www.westernheights.k12.ok.us/resources/special-services/no-photo-available/
+    URL_video = models.URLField(blank=True)
+    date = models.DateTimeField(auto_now=True)
+
+class Image(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=250)
+    FIELD_image = models.FileField()
+    date = models.DateTimeField(auto_now=True)
+
 class Comment_Article(models.Model):
     comment = models.CharField(max_length=1500)
     date = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.CharField(max_length=150)
+    user_email = models.EmailField()
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
 class Comment_Idea(models.Model):
     comment = models.CharField(max_length=1500)
     date = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.CharField(max_length=150)
+    user_email = models.EmailField()
     idea = models.ForeignKey(Idea, on_delete=models.CASCADE)
+
+class Comment_Project(models.Model):
+    comment = models.CharField(max_length=1500)
+    date = models.DateTimeField(auto_now=True)
+    user = models.CharField(max_length=150)
+    user_email = models.EmailField()
+    project = models.ForeignKey(Idea, on_delete=models.CASCADE)
