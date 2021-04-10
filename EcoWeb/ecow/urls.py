@@ -30,5 +30,5 @@ urlpatterns = [
 
     # Else
     path("aboutus", views.about_us, name="aboutus"),
-    path("aboutus", views.credits, name="credits"),
+    path("credits", views.credits, name="credits"),
 ]

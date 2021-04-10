@@ -323,11 +323,12 @@ def logout_view(request):
 def register(request):
     if request.method == "POST":
         form_one = UserForm_one(request.POST)
+        form_two = UserForm_two(request.POST)
         if form_one.is_valid() and form_two.is_valid():
             username = form_one.cleaned_data['username']
             email = form_one.cleaned_data['email']
             first_name = form_one.cleaned_data['first_name']
-            last_name = form._onecleaned_data['last_name']
+            last_name = form_one.cleaned_data['last_name']
             seniority = form_one.cleaned_data['seniority']
             bio = form_one.cleaned_data['bio']
             status = form_two.cleaned_data['status']
@@ -361,7 +362,7 @@ def register(request):
                 return render(request, "ecow/register.html", {
                     "message": "Username déjà utilisé.",
                     "form_one": UserForm_one(),
-                    "form_two": UserForm_two,
+                    "form_two": UserForm_two(),
                 })
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
