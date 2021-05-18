@@ -30,58 +30,6 @@ $(document).ready(function(){
       $('div.carouselNext, div.carouselPrev').removeClass('visible');
   }); 
   
-  // Flip card to the back side
-  $('.view_details').click(function(){    
-    $('div.carouselNext, div.carouselPrev').removeClass('visible');
-    $('.product-card').addClass('flip-10');
-    setTimeout(function(){
-      $('.product-card').removeClass('flip-10').addClass('flip90').find('div.shadow').show().fadeTo( 80 , 1, function(){
-        $('.product-front, .product-front div.shadow').hide();      
-      });
-    }, 50);
-    
-    setTimeout(function(){
-      $('.product-card').removeClass('flip90').addClass('flip190');
-      $('.product-back').show().find('div.shadow').show().fadeTo( 90 , 0);
-      setTimeout(function(){        
-        $('.product-card').removeClass('flip190').addClass('flip180').find('div.shadow').hide();            
-        setTimeout(function(){
-          $('.product-card').css('transition', '100ms ease-out');     
-          $('.cx, .cy').addClass('s1');
-          setTimeout(function(){$('.cx, .cy').addClass('s2');}, 100);
-          setTimeout(function(){$('.cx, .cy').addClass('s3');}, 200);       
-          $('div.carouselNext, div.carouselPrev').addClass('visible');        
-        }, 100);
-      }, 100);      
-    }, 150);      
-  });     
-  
-  // Flip card back to the front side
-  $('.flip-back').click(function(){   
-    
-    $('.product-card').removeClass('flip180').addClass('flip190');
-    setTimeout(function(){
-      $('.product-card').removeClass('flip190').addClass('flip90');
-  
-      $('.product-back div.shadow').css('opacity', 0).fadeTo( 100 , 1, function(){
-        $('.product-back, .product-back div.shadow').hide();
-        $('.product-front, .product-front div.shadow').show();
-      });
-    }, 50);
-    
-    setTimeout(function(){
-      $('.product-card').removeClass('flip90').addClass('flip-10');
-      $('.product-front div.shadow').show().fadeTo( 100 , 0);
-      setTimeout(function(){            
-        $('.product-front div.shadow').hide();
-        $('.product-card').removeClass('flip-10').css('transition', '100ms ease-out');    
-        $('.cx, .cy').removeClass('s1 s2 s3');      
-      }, 100);      
-    }, 150);      
-    
-  }); 
-
-  
   /* ----  Image Gallery Carousel ONE  ---- */
   
   var carousel_one = $('#carousel_one ul');
@@ -106,19 +54,7 @@ $(document).ready(function(){
     isAnimating_one = true;
     setTimeout(function(){isAnimating_one = false;}, 300);      
   });
-  
-  // Load Previous Image
-  $('div#carouselPrev_one').on('click', function(){
-    var currentLeft_one = Math.abs(parseInt($(carousel_one).css("left")));
-    var newLeft_one = currentLeft_one - carouselSlideWidth_one;
-    if(newLeft_one < 0  || isAnimating_one === true){return;}
-    $('.carousel ul').css({'left': "-" + newLeft_one + "px",
-                 "transition": "300ms ease-out"
-               });
-      isAnimating_one = true;
-    setTimeout(function(){isAnimating_one = false;}, 300);      
-  });
-});
+
 
 /* ----  Image Gallery Carousel TWO  ---- */
   
@@ -169,3 +105,5 @@ $('#carousel_three li').each(function(){
   carouselWidth_three += carouselSlideWidth_three;
 });
 $(carousel_three).css('width', carouselWidth_three);
+
+})

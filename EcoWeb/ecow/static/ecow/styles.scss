@@ -630,14 +630,14 @@ nav {
 
 /* PRODUCTS */
 /* --- Product Card ---- */
-#make-3D-space, #make-3D-space2, #make-3D-space3{
+ .make-3D-space{
     position: relative;
     perspective: 800px;
     width:340px;
     height:500px;
     transform-style: preserve-3d;
-    transition: transform 5s;
-    position:absolute;    
+    transition: transform 5s;  
+    position: absolute;
     margin-left:-167px;
 }
 #make-3D-space{
@@ -653,6 +653,42 @@ nav {
 #make-3D-space3{
     top:450px;
     left:80%; 
+}
+
+#make-3D-space4{
+  top:1050px;
+  left:20%; 
+}
+
+#make-3D-space5{
+  top:1050px;
+  left:50%; 
+}
+
+#make-3D-space6{
+  top:1050px;
+  left:80%; 
+}
+
+#make-3D-space7{
+  top:1650px;
+  left:20%; 
+}
+
+#make-3D-space8{
+  top:1650px;
+  left:50%; 
+}
+
+#make-3D-space9{
+  top:1650px;
+  left:80%; 
+}
+
+#make-3D-space10{
+  top:1750px;
+  height: 15px;
+  position: relative;
 }
 
 .product-front, .product-back{
