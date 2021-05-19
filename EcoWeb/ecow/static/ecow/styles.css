@@ -751,6 +751,15 @@ nav .tree img {
           transform: translateX(-50%);
 }
 
+#form_div {
+  background-color: lightgray;
+  width: 600px;
+  padding: 50px;
+  position: fixed;
+  top: 25%;
+  left: 30%;
+}
+
 .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -805,7 +814,7 @@ nav .tree img {
   -webkit-perspective: 800px;
           perspective: 800px;
   width: 340px;
-  height: 500px;
+  height: 505px;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transition: -webkit-transform 5s;

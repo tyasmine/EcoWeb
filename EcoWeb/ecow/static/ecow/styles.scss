@@ -584,6 +584,15 @@ nav {
     }
 }
 
+#form_div{
+  background-color: lightgray;
+  width: 600px;
+  padding: 50px;
+  position: fixed;
+  top: 25%;
+  left: 30%;
+}
+
 .dropbtn {
     background-color: #4CAF50;
     color: white;
@@ -634,7 +643,7 @@ nav {
     position: relative;
     perspective: 800px;
     width:340px;
-    height:500px;
+    height:505px;
     transform-style: preserve-3d;
     transition: transform 5s;  
     position: absolute;

@@ -32,6 +32,32 @@ def index(request):
         "users": users
     })
 
+def command(request):
+     # Send Email
+    if request.method == 'POST':
+        email = request.POST['email']
+        option = request.POST['option']
+        first_name = request.POST['first_name']
+        last_name = request.POST ['last_name']
+
+        subject = "COMMANDE ECO-BOUTIQUE"
+        message = "Nouvelle commande de l'utilisateur. Nom: " + first_name + " - Prénom: " + last_name + " -  Article: " + option + ". Nous vous rapellons que les articles correspondants aux numéros ont été spécifiés aux Eco-ambassadeurs concernés."
+
+        send_mail(subject, 
+        message, 
+        settings.EMAIL_HOST_USER, 
+        ['eco.ambassadeurs.massignon@gmail.com'], 
+        fail_silently = False)
+
+        messages.success(request, 'Ta commande a bien été envoyée!')
+        return HttpResponseRedirect(reverse("products"))
+
+    # Display users (team section)
+    users = User.objects.all()[:4]
+    return render(request, "ecow/index.html", {
+        "users": users
+    })
+
 def products(request):
     products = Product.objects.all
     return render(request, "ecow/products.html", {

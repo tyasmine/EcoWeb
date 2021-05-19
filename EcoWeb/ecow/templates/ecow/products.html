@@ -21,11 +21,11 @@
                 <div class="shadow"></div>
                     <img height="110%" src="{% static 'ecow/images/products/tshirt1.jpeg' %}" alt="" />
                     <div class="image_overlay"></div>
-                    <div class="view_details">COMMANDER</div>
+                    <div onclick="showForm()" class="view_details">COMMANDER</div>
                     <div class="stats">         
                         <div class="stats-container">
                             <span class="product_price">200MAD</span>
-                            <span class="product_name">Eco-T-Shirt</span>    
+                            <span class="product_name">Eco-T-Shirt A</span>    
                             <p>HOMMES ET FEMMES</p>                                            
                             <div class="product-options">
                                 <strong>TAILLES DISPONIBLES</strong>
@@ -43,7 +43,7 @@
                 <div class="shadow"></div>
                     <img height="110%" src="{% static 'ecow/images/products/pull.jpeg' %}" alt="" />
                     <div class="image_overlay"></div>
-                    <div class="view_details">COMMANDER</div>
+                    <div onclick="showForm()" class="view_details">COMMANDER</div>
                     <div class="stats">         
                         <div class="stats-container">
                             <span class="product_price">250MAD</span>
@@ -65,7 +65,7 @@
                 <div class="shadow"></div>
                     <img height="110%" src="{% static 'ecow/images/products/hoodie.jpeg' %}" alt="" />
                     <div class="image_overlay"></div>
-                    <div class="view_details">COMMANDER</div>
+                    <div onclick="showForm()" class="view_details">COMMANDER</div>
                     <div class="stats">         
                         <div class="stats-container">
                             <span class="product_price">250MAD</span>
@@ -90,11 +90,11 @@
                 <div class="shadow"></div>
                     <img height="110%" src="{% static 'ecow/images/products/image2.png' %}" alt="" />
                     <div class="image_overlay"></div>
-                    <div class="view_details">COMMANDER</div>
+                    <div onclick="showForm()" class="view_details">COMMANDER</div>
                     <div class="stats">         
                         <div class="stats-container">
                             <span class="product_price">250MAD</span>
-                            <span class="product_name">Eco-Hoodie</span>    
+                            <span class="product_name">Eco-Tshirt B</span>    
                             <p>HOMMES ET FEMMES</p>                                            
                             <div class="product-options">
                                 <strong>TAILLES DISPONIBLES</strong>
@@ -112,11 +112,11 @@
                 <div class="shadow"></div>
                     <img height="110%" src="{% static 'ecow/images/products/image3.png' %}" alt="" />
                     <div class="image_overlay"></div>
-                    <div class="view_details">COMMANDER</div>
+                    <div onclick="showForm()" class="view_details">COMMANDER</div>
                     <div class="stats">         
                         <div class="stats-container">
                             <span class="product_price">250MAD</span>
-                            <span class="product_name">Eco-Hoodie</span>    
+                            <span class="product_name">Eco-Tshirt C</span>    
                             <p>HOMMES ET FEMMES</p>                                            
                             <div class="product-options">
                                 <strong>TAILLES DISPONIBLES</strong>
@@ -134,11 +134,11 @@
                 <div class="shadow"></div>
                     <img height="110%" src="{% static 'ecow/images/products/image4.png' %}" alt="" />
                     <div class="image_overlay"></div>
-                    <div class="view_details">COMMANDER</div>
+                    <div onclick="showForm()" class="view_details">COMMANDER</div>
                     <div class="stats">         
                         <div class="stats-container">
                             <span class="product_price">250MAD</span>
-                            <span class="product_name">Eco-Hoodie</span>    
+                            <span class="product_name">Eco-Tshirt 404</span>    
                             <p>HOMMES ET FEMMES</p>                                            
                             <div class="product-options">
                                 <strong>TAILLES DISPONIBLES</strong>
@@ -159,11 +159,11 @@
                 <div class="shadow"></div>
                     <img height="110%" src="{% static 'ecow/images/products/image5.png' %}" alt="" />
                     <div class="image_overlay"></div>
-                    <div class="view_details">COMMANDER</div>
+                    <div onclick="showForm()" class="view_details">COMMANDER</div>
                     <div class="stats">         
                         <div class="stats-container">
                             <span class="product_price">250MAD</span>
-                            <span class="product_name">Eco-Hoodie</span>    
+                            <span class="product_name">Eco-Tshirt D</span>    
                             <p>HOMMES ET FEMMES</p>                                            
                             <div class="product-options">
                                 <strong>TAILLES DISPONIBLES</strong>
@@ -181,11 +181,11 @@
                 <div class="shadow"></div>
                     <img height="110%" src="{% static 'ecow/images/products/image6.png' %}" alt="" />
                     <div class="image_overlay"></div>
-                    <div class="view_details">COMMANDER</div>
+                    <div onclick="showForm()" class="view_details">COMMANDER</div>
                     <div class="stats">         
                         <div class="stats-container">
                             <span class="product_price">250MAD</span>
-                            <span class="product_name">Eco-Hoodie</span>    
+                            <span class="product_name">Eco-Tshirt E</span>    
                             <p>HOMMES ET FEMMES</p>                                            
                             <div class="product-options">
                                 <strong>TAILLES DISPONIBLES</strong>
@@ -203,11 +203,11 @@
                 <div class="shadow"></div>
                     <img height="110%" src="{% static 'ecow/images/products/image7.png' %}" alt="" />
                     <div class="image_overlay"></div>
-                    <div class="view_details">COMMANDER</div>
+                    <div onclick="showForm()" class="view_details">COMMANDER</div>
                     <div class="stats">         
                         <div class="stats-container">
                             <span class="product_price">250MAD</span>
-                            <span class="product_name">Eco-Hoodie</span>    
+                            <span class="product_name">Eco-Tshirt F</span>    
                             <p>HOMMES ET FEMMES</p>                                            
                             <div class="product-options">
                                 <strong>TAILLES DISPONIBLES</strong>
@@ -221,6 +221,34 @@
     </div>
 
     <div id="make-3D-space10"></div>
+    <div id="form_div" style="display: none;">
+        <form action="{% url 'command' %}"  method="post" id="commandform">
+            {% csrf_token %}
+            <button onclick="hideForm()" style="font-size: 20px; margin-left: 460px; margin-bottom: 20px;" type="button">  X  </button>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                </div>
+                <select name="option" class="custom-select" id="inputGroupSelect01">
+                    <option selected>Choisis ton article...</option>
+                    <option value="1">Eco-Tshirt A</option>
+                    <option value="2">Eco-Pull</option>
+                    <option value="3">Eco-Hoodie</option>
+                    <option value="4">Eco-Tshirt B</option>
+                    <option value="5">Eco-Tshirt C</option>
+                    <option value="6">Eco-Tshirt 404</option>
+                    <option value="7">Eco-Tshirt D</option>
+                    <option value="8">Eco-Tshirt E</option>
+                    <option value="9">Eco-Tshirt F</option>
+                </select>
+            </div>
+            <input class="form-control" name="first_name" type="text" placeholder="Prénom">
+            <input class="form-control" name="last_name" type="text" placeholder="Nom">
+            <input class="form-control" name="email" type="email" placeholder="email"><br>
+            <input class="btn btn-primary" type="submit" value="Envoie ta commande!"><br>
+            <small>Tu recevras un email de confirmation puis les instructions pour payer et recevoir ton t-shirt de la part des Eco-Ambassadeurs.</small>
+        </form>
+    </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="{% static 'ecow/app.js' %}"></script>

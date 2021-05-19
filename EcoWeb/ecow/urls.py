@@ -28,6 +28,9 @@ urlpatterns = [
     path("create_image", views.create_image, name="create_image"),
     path("create_idea", views.create_idea, name="create_idea"),
 
+    #Command
+    path("command", views.command, name="command"),
+
     # Else
     path("aboutus", views.about_us, name="aboutus"),
     path("credits", views.credits, name="credits"),

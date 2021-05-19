@@ -18,6 +18,14 @@ function onClick(element) {
   captionText.innerHTML = element.alt;
 }
 
+// Show and Hide Command Form
+function showForm() {
+  document.getElementById("form_div").style.display = "block";
+}
+function hideForm() {
+  document.getElementById("form_div").style.display = "none";
+}
+
 // PRODUCTS
 $(document).ready(function(){
   
@@ -104,6 +112,6 @@ var isAnimating_three = false;
 $('#carousel_three li').each(function(){
   carouselWidth_three += carouselSlideWidth_three;
 });
-$(carousel_three).css('width', carouselWidth_three);
-
+$(carousel_three).css('width', carouselWidth_three)
 })
+
