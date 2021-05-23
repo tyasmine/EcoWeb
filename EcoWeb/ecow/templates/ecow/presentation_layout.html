@@ -13,7 +13,7 @@
         <a href="#" class="glitch" data-glitch="Articles">Articles</a>  
         <h3 style="margin-top: 250px;" class="w3-center create-text">Raise awareness</h3>
         <p class="w3-center w3-large">Ecologie, réchauffement climatique, recyclage... Des sujets d'actualité qui te permettront d'en savoir d'avantage!</p>
-        <div style="margin-bottom: 30px;" class="dropdown">
+        <div style="margin-bottom: 30px; margin-top: 30px;" class="dropdown">
             <button class="dropbtn">Catégories</button>
             <div class="dropdown-content">
             <a href="/articles">Général</a>
@@ -34,7 +34,7 @@
     {% endif %}
 
     {% for object in objects %}
-        <div class="w3-col l3 m6 w3-margin-bottom" style="margin: auto; margin-top: 50px;">
+        <div class="w3-col l3 m6 w3-margin-bottom" style="margin: auto; margin-top: 100px;">
             <div class="w3-card" style="margin:30px;">
               <div class="w3-container">
                 <img style="margin-top: 10px; height: 170px;" src="{{ object.URL_image }}" class="card-img-top" alt="Image is not available">
