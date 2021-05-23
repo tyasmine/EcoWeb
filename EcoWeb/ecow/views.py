@@ -367,7 +367,8 @@ def register(request):
             if int(code) != 8985:
                 return render(request, "ecow/register.html", {
                     "message": "Votre code d'accès est invalide. Veuillez nous contacter pour plus d'informations.",
-                    "form": UserForm(),
+                    "form_one": UserForm_one(),
+                    "form_two": UserForm_two,
                 })
 
             # Ensure password matches confirmation
